@@ -30,7 +30,7 @@ API REST para la gestión de una tienda: clientes, productos, usuarios y ventas 
 El objetivo del proyecto es doble:
 
 1. **Construir una API REST bien estructurada** con las prácticas actuales de ASP.NET Core 10 y Entity Framework Core.
-2. **Montar un pipeline de CI/CD completo** sobre un servidor Fedora autoalojado: al publicar un tag, Jenkins compila el proyecto, aplica migraciones y actualiza el servicio `systemd` en producción sin intervención manual.
+2. **Montar un pipeline de CI/CD completo** sobre un servidor Ubuntu autoalojado: al publicar un tag, Jenkins compila el proyecto, aplica migraciones y actualiza el servicio `systemd` en producción sin intervención manual.
 
 > [!NOTE]
 > Proyecto en desarrollo activo. Actualmente los módulos de **clientes** y **productos** exponen endpoints; el resto de entidades están modeladas y migradas, pero aún sin su capa de servicios. Ver el [roadmap](#roadmap).
@@ -409,7 +409,7 @@ Al añadir un módulo nuevo se replica el mismo corte vertical: entidad → DTOs
 
 - [x] Workflow de CI en GitHub Actions (build + tests en cada push a `main`)
 - [ ] `Jenkinsfile` de despliegue disparado por tags `v*`
-- [ ] Despliegue automatizado a servicio `systemd` sobre Fedora con estrategia de releases y rollback
+- [ ] Despliegue automatizado a servicio `systemd` sobre Ubuntu con estrategia de releases y rollback
 - [ ] Aplicación de migraciones en el despliegue mediante EF Core migration bundles
 
 ---
