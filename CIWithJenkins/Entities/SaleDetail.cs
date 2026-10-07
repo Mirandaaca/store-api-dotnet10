@@ -1,20 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace CIWithJenkins.Entities
 {
     public class SaleDetail
     {
-        [Key]
         public Guid Id { get; set; }
         public Guid SaleId { get; set; }
         public Guid ProductId { get; set; }
+        // Price the product had when this sale was registered
         public decimal UnitPrice { get; set; }
-        public decimal Subtotal { get; set; }
+        // Units of the product sold in this sale
         public int Quantity { get; set; }
-        [ForeignKey("SaleId")]
+        // Generated column: the database keeps it as UnitPrice * Quantity
+        public decimal Subtotal { get; private set; }
         public Sale Sale { get; set; }
-        [ForeignKey("ProductId")]
         public Product Product { get; set; }
     }
 }
